@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { FileReader } from "./components/FileReader";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { RAFileReader } from "./components/RAFileReader";
+import { RAFileBuilder } from "./components/RAFileBuilder";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -17,7 +18,7 @@ export const PlaylistMakerApp = () => {
     }
 	return (
 		<ThemeProvider theme={defaultTheme}>
-			<Box component="main" flexGrow={1} sx={{ display: "flex", height: "100vh" }}>
+			<Box component="main" flexGrow={1} sx={{ display: "flex", height: "100vh", overflow: "auto" }}>
 				<CssBaseline />
                 <Stack>
                 <Typography component="h1" variant="h6" sx={{ flexGrow: 1 }}>
@@ -25,10 +26,10 @@ export const PlaylistMakerApp = () => {
 				</Typography>
 				<Grid container spacing={2}>
 					<Grid xs={4}>
-						<FileReader setFileContents={setContents} />
+						<RAFileReader setFileContents={setContents} />
 					</Grid>
 					<Grid xs={8}>
-                        {fileContents}
+                        <RAFileBuilder fileContents={fileContents} />
                     </Grid>
 				</Grid>    
                 </Stack>

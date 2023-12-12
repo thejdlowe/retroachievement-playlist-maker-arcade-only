@@ -1,13 +1,13 @@
 import {
 	buildAuthorization,
 	getGameList,
-	GameList,
 } from "@retroachievements/api";
 import { useState, useEffect } from "react";
 
+
 export const useGetRAData = () => {
 	const [hasRAData, setHasRADataState] = useState<boolean>(false);
-	const [raData, setRADataState] = useState<GameList>([]);
+	const [raData, setRADataState] = useState<string[]>([]);
 
 	useEffect(() => {
 		if (hasRAData) return;
@@ -22,8 +22,14 @@ export const useGetRAData = () => {
 				shouldOnlyRetrieveGamesWithAchievements: true,
 				shouldRetrieveGameHashes: true,
 			});
+			const list: string[] = [];
+			gameList.forEach((game) => {
+				game?.hashes?.forEach((hash) => {
+					list.push(hash.toLocaleUpperCase());
+				});
+			});
+			setRADataState(list);
 			setHasRADataState(true);
-			setRADataState(gameList);
 		};
 
 		fetchData();

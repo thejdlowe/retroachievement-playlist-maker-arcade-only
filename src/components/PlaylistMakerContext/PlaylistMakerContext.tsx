@@ -1,8 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
 import { useGetRAData } from "./PlaylistMakerContext.helper";
-import {
-		GameList,
-} from "@retroachievements/api";
 
 export interface PlaylistMakerContextProviderProps {
 	children?: React.ReactNode | React.ReactNode[];
@@ -10,7 +7,7 @@ export interface PlaylistMakerContextProviderProps {
 
 interface PlaylistMakerContextValues {
 	hasRAData: boolean;
-	raData: GameList;
+	raData: string[];
 	fileContents: string;
 	setFileContents: (value: string) => void;
 }

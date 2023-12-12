@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { splitFileName } from "./RAFileBuilder.helper";
-import Paper from "@mui/material/Paper";
-import { Input } from "@mui/material";
+import { usePlaylistMakerContext } from "../../../PlaylistMakerContext";
 
-export const RAFileBuilder = ({ fileContents }: { fileContents: string }) => {
-	//console.log(JSON.parse(fileContents ?? JSON.stringify({})))
+export const RAFileBuilder = () => {
+	const {fileContents} = usePlaylistMakerContext();
 	useEffect(() => {
 		if (fileContents) {
 			console.log(JSON.parse(fileContents));
@@ -27,7 +26,8 @@ export const RAFileBuilder = ({ fileContents }: { fileContents: string }) => {
 			} = JSON.parse(fileContents);
 			fileObject.items.forEach((gameObject) => {
 				const path = gameObject.path;
-				console.log(splitFileName(path));
+                const fileName = splitFileName(path);
+				console.log(fileName);
 			});
 		}
 	}, [fileContents]);

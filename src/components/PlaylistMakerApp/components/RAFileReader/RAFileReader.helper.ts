@@ -1,6 +1,8 @@
 import { useRef } from "react";
-export const useFileReader = (setFileContents: (str: string) => void) => {
+import { usePlaylistMakerContext } from "../../../PlaylistMakerContext";
+export const useFileReader = () => {
 	const inputRef = useRef<HTMLInputElement>();
+	const {setFileContents} = usePlaylistMakerContext();
 	const onChange = () => {
 		if (inputRef && inputRef.current && inputRef.current.files) {
 			const files = inputRef.current.files;

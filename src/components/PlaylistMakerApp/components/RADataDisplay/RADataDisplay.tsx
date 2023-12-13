@@ -46,5 +46,5 @@ export const RADataDisplay = () => {
 		}
 	}, [raData, hasRAData, fileContents]);
 
-	return <Box>{linkContents !== "" ? (<a download="Arcade With Achievements.lpl" href={`data:text/plain,${linkContents}`}>Download</a>) : "Not yet"}</Box>;
+	return <Box>{linkContents !== "" ? (<a download="Arcade With Achievements.lpl" href={`data:text/plain,${linkContents}`}>Download</a>) : "Playlist Not Yet Ready"}</Box>;
 };

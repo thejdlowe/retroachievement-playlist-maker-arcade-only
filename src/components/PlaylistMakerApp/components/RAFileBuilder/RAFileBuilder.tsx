@@ -3,5 +3,5 @@ import { usePlaylistMakerContext } from "../../../PlaylistMakerContext";
 export const RAFileBuilder = () => {
 	const {fileContents} = usePlaylistMakerContext();
 	
-	return <>{fileContents}</>;
+	return <>{fileContents !== "" ? "File Loaded" : "File Unloaded"}</>;
 };

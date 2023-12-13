@@ -22,3 +22,9 @@ This was written using `node v18.17.1` and should work with versions `v18.x.x`.
 6. Select your already created Arcade Playlist in the file select box. See https://docs.libretro.com/guides/roms-playlists-thumbnails/ for details on how to create a playlist. ![image](https://github.com/thejdlowe/retroachievement-playlist-maker-arcade-only/assets/2357370/d7b6da6d-b22d-416a-893d-89dc414fbcab)
 7. Click the download link that now appears, and save it to the folder you have your RetroArch playlists. Feel free to name it whatever you want.
 8. Open RetroArch and enjoy!
+
+## Drawbacks
+
+The playlist does not automatically update; you will need to run this whenever new arcade games get achievements and overwrite the custom playlist.
+
+As mentioned above, this code is not set up to be published online, as it exposes an API key. Having it done on a server level would make this much more secure, but hey, considering how niche this is, how much demand could there possibly be (knock on wood)

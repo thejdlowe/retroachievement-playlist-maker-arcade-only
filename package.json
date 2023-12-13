@@ -1,8 +1,12 @@
 {
-  "name": "retroachievement-playlist-maker",
-  "private": true,
-  "version": "0.0.0",
+  "name": "retroachievement-playlist-maker-arcade-only",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "author": {
+    "name": "J.D. Lowe",
+    "email": "jdlowe.dev@gmail.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

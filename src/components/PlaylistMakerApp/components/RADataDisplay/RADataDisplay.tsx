@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { usePlaylistMakerContext } from "../../../PlaylistMakerContext";
 import { splitFileName } from "../RAFileBuilder/RAFileBuilder.helper";
@@ -14,6 +14,7 @@ type gameObjectType = {
 };
 export const RADataDisplay = () => {
 	const { raData, hasRAData, fileContents } = usePlaylistMakerContext();
+	const [linkContents, setLinkContents] = useState<string>("")
 	useEffect(() => {
 		if (hasRAData && raData.length && fileContents.length) {
 			const fileObject: {
@@ -41,23 +42,9 @@ export const RADataDisplay = () => {
 			});
 
 			fileObject.items = finalFiles;
-			/*
-What you can do, however – APIs or not – is cheesing it with a link to a data: uri with a download attribute specifying your suggested filename. For instance:
-
-<a id="save" download="earth.txt" href="data:text/plain,mostly harmless&#10;">Save</a>
-
-When clicked, at least in Chrome, this will save a file containing the text mostly harmless (and a trailing newline) as earth.txt in your download directory. To set the file contents from javascript instead, call this function first:
-
-function setSaveFile(contents, file_name, mime_type) {
-  var a = document.getElementById('save');
-  mime_type = mime_type || 'application/octet-stream'; // text/html, image/png, et c
-  if (file_name) a.setAttribute('download', file_name);
-  a.href = 'data:'+ mime_type +';base64,'+ btoa(contents || '');
-}
-
-*/
+			setLinkContents(JSON.stringify(fileObject))
 		}
 	}, [raData, hasRAData, fileContents]);
 
-	return <Box>{raData.join(", ")}</Box>;
+	return <Box>{linkContents !== "" ? (<a download="Arcade With Achievements.lpl" href={`data:text/plain,${linkContents}`}>Download</a>) : "Not yet"}</Box>;
 };

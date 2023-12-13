@@ -35,6 +35,7 @@ export const PlaylistMakerApp = () => {
 								<RADataDisplay />
 							</Grid>
 						</Grid>
+						<div>Source code available at <a href="https://github.com/thejdlowe/retroachievement-playlist-maker-arcade-only/" target="_blank">Github</a></div>
 					</Stack>
 				</Box>
 			</ThemeProvider>
